@@ -2,14 +2,14 @@
 <br><br>
 <ul class="heroes"> <!-- Just an CSS Class -->
 <li *ngFor="let employee of employees">
-    <!-- <a routerLink="/detail/{{employee.id}}"> -->
+    <a routerLink="/detail/{{employee.id}}">
     <span class="badge">{{employee.id}} </span> {{employee.name}} 
-    <!-- </a> -->
+    </a>
   
 
 
-<!-- <button class="delete" title="delete employee"
-(click)="delete(employee)">x</button> -->
+<button class="delete" title="delete employee"
+(click)="delete(employee)">x</button>
 
 </li>
 </ul>
