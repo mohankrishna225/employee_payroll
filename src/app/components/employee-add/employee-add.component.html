@@ -1,0 +1,34 @@
+<h3>Add New Employee</h3>
+
+
+<!-- Using Form Group in Reactive Forms -->
+<form [formGroup]="addForm" (ngSubmit)="submit()">
+
+    <div class="form-group">
+        <label for="name"> Name: </label>
+        <input id="name" type="text" formControlName="name" class="form-control" required>
+        
+        <!-- Here I'm using Template Driven Forms Validation for touched property -->
+        <div *ngIf="name?.touched && name?.invalid" class="alert alert-danger">  
+            <div *ngIf="name?.errors?.required" class="alert alert-danger">Name is required </div>
+            <div *ngIf="name?.errors?.minlength">Name must be atleast 4 Characters Long</div>
+        </div>
+
+    </div>
+
+    <div class="form-group">
+        <label for="salary">Salary: </label>
+        <input id="salary" type="text" formControlName="salary" class="form-control">
+
+        <!-- To avoid null values exception place ? -->
+        <div *ngIf="salary?.touched && salary?.invalid" class="alert alert-danger"> 
+                <!-- Reactive Form Validations -->
+            <div *ngIf="salary?.errors?.required" class="alert alert-danger"> Salary is required </div>
+            <div *ngIf="salary?.errors?.pattern"> Use numbers only Not Decimal </div>
+        </div>
+
+    </div>
+    <p> Complete the form to enable button</p>
+    <!-- Checking for if the Form is Valid and making it diabled until it's Valid -->
+    <button type="submit" [disabled]="!addForm.valid">Add Employee</button>
+</form>

@@ -1,0 +1,13 @@
+<div *ngIf="employee">
+    <h2>{{employee.name | uppercase}} Details</h2>
+    <div><span>id: </span>{{employee.id}}</div>
+    <div>
+      <label for="hero-name">Hero name: </label>
+      <input id="hero-name" [(ngModel)]="employee.name" placeholder="Employee name"/>
+      <input id="hero-name" [(ngModel)]="employee.salary" placeholder="Employee Salary"/>
+    </div>
+    <button (click)="goBack()">go back</button>
+    <button (click)="save()">save</button>
+  </div>
+  
+  
